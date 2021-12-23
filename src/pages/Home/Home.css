@@ -1,0 +1,12 @@
+.postBlock {
+    text-align: justify ;
+    background: rgba(9, 18, 146,.15);
+    margin: 10px auto;
+    padding: 0 10px;
+    border: 1px solid rgb(9, 18, 146);
+    border-radius: 15px;
+}
+
+.postBlock h1 {
+    text-align: center;
+}

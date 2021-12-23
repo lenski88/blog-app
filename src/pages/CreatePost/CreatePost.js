@@ -31,7 +31,7 @@ function reducer(state = initialState, action) {
 export const CreatePost = ({ isAuth }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const navigate = useNavigate();
-  
+
   const postsCollection = collection(db, "posts");
 
   const createPost = async () => {
