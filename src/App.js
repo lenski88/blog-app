@@ -29,7 +29,7 @@ function App() {
     <div className="App">
       <Router>
         <nav>
-          <Container maxWidth="lg">
+          <Container maxWidth='md' className="container">
             <ButtonGroup variant="contained" size="medium" color="primary">
               <Button>
                 <Link to="/">Home</Link>
@@ -49,7 +49,7 @@ function App() {
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/create-post" element={<CreatePost />} />
+          <Route path="/create-post" element={<CreatePost isAuth={isAuth} />} />
           <Route
             path="/login"
             element={<Login setIsAuth={setIsAuth}/>}
