@@ -12,3 +12,8 @@
     text-align: center;
 }
 
+.postBlock button {
+    position: absolute;
+    right:15px;
+    bottom:15px
+}
