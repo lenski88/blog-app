@@ -1,4 +1,5 @@
 .postBlock {
+    position: relative;
     text-align: justify ;
     background: rgba(9, 18, 146,.15);
     margin: 10px auto;
@@ -10,3 +11,4 @@
 .postBlock h1 {
     text-align: center;
 }
+

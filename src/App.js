@@ -14,23 +14,28 @@ import Container from "@material-ui/core/Container";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
 
- 
-
 function App() {
-  const [isAuth, setIsAuth] = useState(localStorage.getItem('isAuth') || false);
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth") || false);
+  const [refresh, setRefresh] = useState(false);
+
+  const refreshHandler = () => {
+    setRefresh(!refresh);
+  };
+
   const signUserOut = () => {
     signOut(auth).then(() => {
       localStorage.clear();
       setIsAuth(false);
-      window.location.pathname = '/login'
+      window.location.pathname = "/login";
     });
   };
   return (
     <div className="App">
       <Router>
         <nav>
-          <Container maxWidth='md' className="container">
+          <Container maxWidth="md" className="container">
             <ButtonGroup variant="contained" size="medium" color="primary">
+             { isAuth ? <Button onClick={refreshHandler}>&#8635;</Button> : null}
               <Button>
                 <Link to="/">Home</Link>
               </Button>
@@ -48,12 +53,9 @@ function App() {
           </Container>
         </nav>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home refresh={refresh} isAuth={isAuth} />} />
           <Route path="/create-post" element={<CreatePost isAuth={isAuth} />} />
-          <Route
-            path="/login"
-            element={<Login setIsAuth={setIsAuth}/>}
-          />
+          <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
         </Routes>
       </Router>
     </div>
